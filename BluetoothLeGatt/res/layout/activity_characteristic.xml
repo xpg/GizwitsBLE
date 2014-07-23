@@ -1,0 +1,101 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context="com.example.bluetooth.le.CharacteristicActivity" >
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_uuid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ASCII: "
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_ascii"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HEX: "
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_hex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/btn_read"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Read"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btn_notify"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start Notify"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btn_indicate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Indicate"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_write"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone" >
+
+        <Button
+            android:id="@+id/btn_write"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Write" />
+
+        <EditText
+            android:id="@+id/et_hex"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="0x0A30BC" />
+    </LinearLayout>
+
+</LinearLayout>
