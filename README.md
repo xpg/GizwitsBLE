@@ -19,10 +19,13 @@ GizwitsBLE has a simple interface that's easy to learn and is open sourced. It i
 * BluetoothLeGatt: this is the demo app project that uses BleLibrary.
 
 # Compile & Run
-* Eclipse
+## Eclipse
 These two projects are eclipse projects. If you use eclipse, you can import these projects directly and run BluetoothLeGatt.
-* Android Studio
+## Android Studio
 If you use android studio, you should import these project.
+
 When it goes to Libraries step, it will show libs and libs1, just choose libs and ignore libs1.
+
 When it goes to select project SDK step, ensure you choose Android API > 17.
+
 Then you can run BluetoothLeGatt in android studio.
