@@ -404,19 +404,18 @@ public class BleService extends Service {
 		}
 	}
 
-	private void processNextRequest() {
+	private synchronized void processNextRequest() {
 		if (mCurrentRequest != null) {
 			return;
 		}
 
-		synchronized (mRequestQueue) {
-			if (mRequestQueue.isEmpty()) {
-				return;
-			}
-			mCurrentRequest = mRequestQueue.remove();
+		if (mRequestQueue.isEmpty()) {
+			return;
 		}
+		mCurrentRequest = mRequestQueue.remove();
 		Log.d(TAG, "+processrequest type " + mCurrentRequest.type + " address "
 				+ mCurrentRequest.address + " remark " + mCurrentRequest.remark);
+		startTimeoutThread();
 		boolean ret = false;
 		switch (mCurrentRequest.type) {
 		case CONNECT_GATT:
@@ -445,9 +444,8 @@ public class BleService extends Service {
 			break;
 		}
 
-		if (ret) {
-			startTimeoutThread();
-		} else {
+		if (!ret) {
+			clearTimeoutThread();
 			Log.d(TAG, "-processrequest type " + mCurrentRequest.type
 					+ " address " + mCurrentRequest.address + " [fail start]");
 			bleRequestFailed(mCurrentRequest.address, mCurrentRequest.type,
